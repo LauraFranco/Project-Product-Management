@@ -1,0 +1,14 @@
+<div *ngFor='let product of products' class="productsCard">
+<div class="card border-info mb-3" d-inline-block style="max-width: 20rem;">
+    <div class="card-header">Look for More Products!!!</div>
+    <div class="card-body">
+      <h4 class="card-title">{{product.title}}</h4>
+      <p class="card-text"> $ {{product.price}}</p>
+      <img class="imgProduct" src="{{ product.image }}" alt="">
+      <a id="btnList" class="btn btn-success" [routerLink]="['/edit/']+product._id">Edit</a>
+      <a id="btnLis" class="btn btn-danger" (click)="deleteProduct(product._id)">Delete</a>
+    </div>
+  </div>
+</div>
+
+

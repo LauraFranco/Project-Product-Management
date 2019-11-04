@@ -1,0 +1,19 @@
+<div *ngIf="replyErrors">
+        <div *ngFor ="let error of replyErrors">
+            {{error}}
+        </div>
+</div>
+<div class="card border-info mb-3" style="max-width: 20rem;">
+    <div class="card-header">Edit Product</div>
+        <div class="card-body">
+            <form (submit)="editProduct(editProductForm)" #editProductForm ="ngForm">
+                <img class="imgProduct" src="{{ product?.image }}" alt="">
+                <p>Product: <input type="text" name="title" [ngModel]= "product?.title" value=" {{product?.title}}"></p>
+                <p>Price: <input type="text" name="price" [ngModel]= "product?.price" value=" {{product?.price}}"></p>
+                <p>Image: <input type="text" name="image" [ngModel]= "product?.image" value=" {{product?.image}}"></p>
+                <a id="btnEdit" class="btn btn-warning" [routerLink]="['/products']">Cancel</a>
+                <a id="btnEdit" class="btn btn-danger" (click)="deleteProduct(product?._id)">Delete</a>
+                <input id="btnEdit" type="submit" class="btn btn-success" value="Update">
+            </form>
+        </div>
+</div>
